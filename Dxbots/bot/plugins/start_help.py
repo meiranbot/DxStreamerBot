@@ -12,7 +12,7 @@ from Dxbots.utils.file_properties import get_name, get_hash, get_media_file_size
 db = Database(Var.DATABASE_URL, Var.name)
 from pyrogram.types import ReplyKeyboardMarkup
 
-else:
+
             buttonz=ReplyKeyboardMarkup(
             [
                 ["start⚡️","help📚","DC"],
