@@ -5,7 +5,6 @@ logger = logging.getLogger(__name__)
 from Dxbots.bot.plugins.stream import MY_PASS
 from Dxbots.utils.human_readable import humanbytes
 from Dxbots.utils.database import Database
-from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
 from Dxbots.utils.file_properties import get_name, get_hash, get_media_file_size
@@ -13,17 +12,15 @@ db = Database(Var.DATABASE_URL, Var.name)
 from pyrogram.types import ReplyKeyboardMarkup
 
 
-            buttonz=ReplyKeyboardMarkup(
-            [
+            buttons = [[
                 ["start⚡️","help📚","DC"],
                 ["Subscribe ❤️","ping📡","status📊","maintainers😎"]
                         
-            ],
+            ]],
             resize_keyboard=True
         )
 
-            
-            
+          
 @DxStreamBot.on_message((filters.command("start") | filters.regex('start⚡️')) & filters.private )
 async def start(b, m):
     if not await db.is_user_exist(m.from_user.id):
